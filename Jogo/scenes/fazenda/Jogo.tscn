@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2xvlb5mitexj"]
+
+[ext_resource type="PackedScene" uid="uid://diplqajrvpgqq" path="res://scenes/character/player/player.tscn" id="1_6gasf"]
+[ext_resource type="PackedScene" uid="uid://dd5yx11pombpj" path="res://scenes/fazenda/Fazenda.tscn" id="2_fsxhu"]
+
+[node name="Playground" type="Node2D"]
+position = Vector2(-106, -47)
+
+[node name="Player" parent="." instance=ExtResource("1_6gasf")]
+position = Vector2(179, 159)
+
+[node name="Fazenda" parent="." instance=ExtResource("2_fsxhu")]
