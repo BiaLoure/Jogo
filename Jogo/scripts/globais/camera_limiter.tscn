@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce37a4hb6hqyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mikc7"]
+size = Vector2(20, 161)
+
+[node name="camera_limiter" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(179, 60)
+shape = SubResource("RectangleShape2D_mikc7")
+
+[node name="LimitPosition" type="Marker2D" parent="."]
