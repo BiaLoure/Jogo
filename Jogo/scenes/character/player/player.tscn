@@ -1,9 +1,9 @@
 [gd_scene load_steps=54 format=3 uid="uid://diplqajrvpgqq"]
 
 [ext_resource type="Script" uid="uid://dg07o4ceao5h5" path="res://scenes/character/player/player.gd" id="1_puv7k"]
-[ext_resource type="Texture2D" uid="uid://b1w863dn6y8gf" path="res://assets/characters/Basic Charakter Spritesheet.png" id="2_fhl08"]
+[ext_resource type="Texture2D" uid="uid://b1w863dn6y8gf" path="res://assets/game/characters/Basic Charakter Spritesheet.png" id="2_fhl08"]
 [ext_resource type="Script" uid="uid://dibtmxk4p4v0r" path="res://scripts/state_machine/node_state_machine.gd" id="3_btcbx"]
-[ext_resource type="Texture2D" uid="uid://d0w8clky1lsgf" path="res://assets/characters/Basic Charakter Actions.png" id="3_vtle1"]
+[ext_resource type="Texture2D" uid="uid://d0w8clky1lsgf" path="res://assets/game/characters/Basic Charakter Actions.png" id="3_vtle1"]
 [ext_resource type="Script" uid="uid://d4k31mmpcw2fl" path="res://scenes/character/player/idle_state.gd" id="4_gwnis"]
 [ext_resource type="Script" uid="uid://wsfgf0ft03me" path="res://scenes/character/player/walk_state.gd" id="5_apd2u"]
 [ext_resource type="Script" uid="uid://cg44orn2ngq6f" path="res://scenes/character/player/chopping_state.gd" id="7_i0j1t"]
@@ -450,6 +450,11 @@ player = NodePath("../..")
 animation_player = NodePath("../../AnimatedSprite2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 368
 
 [node name="HitComponent" parent="." instance=ExtResource("10_68dt2")]
 

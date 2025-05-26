@@ -1,15 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2xvlb5mitexj"]
+[gd_scene load_steps=4 format=3 uid="uid://c2xvlb5mitexj"]
 
 [ext_resource type="PackedScene" uid="uid://diplqajrvpgqq" path="res://scenes/character/player/player.tscn" id="1_6gasf"]
 [ext_resource type="PackedScene" uid="uid://dd5yx11pombpj" path="res://scenes/fazenda/Fazenda.tscn" id="2_fsxhu"]
+[ext_resource type="PackedScene" uid="uid://bnqxc10hsf8dh" path="res://scripts/globais/game_screen.tscn" id="3_fsxhu"]
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(-106, -47)
 
-[node name="Player" parent="." instance=ExtResource("1_6gasf")]
-position = Vector2(179, 159)
-
 [node name="Fazenda" parent="." instance=ExtResource("2_fsxhu")]
 z_index = 0
-layer_0/tile_data = PackedInt32Array(-524261, 524291, 6, -524260, 589827, 6, -393200, 393219, 6, -393201, 3, 2, -393199, 131075, 2, -458736, 262147, 6, -458737, 3, 0, -458735, 196611, 5, -524272, 3, 0, -524271, 327683, 5, -458734, 131075, 2, -524270, 131075, 0, 393228, 13, 65536)
+position = Vector2(106, 47)
+layer_0/tile_data = PackedInt32Array(458768, 524296, 2, 393232, 524296, 2)
+
+[node name="Player" parent="." instance=ExtResource("1_6gasf")]
+position = Vector2(431, 217)
+
+[node name="GameScreen" parent="." instance=ExtResource("3_fsxhu")]

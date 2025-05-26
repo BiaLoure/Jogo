@@ -14,10 +14,14 @@ config/name="tcc"
 run/main_scene="uid://c2xvlb5mitexj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[autoload]
+
+ToolManager="*res://scripts/globais/tool_manager.gd"
+
 [display]
 
-window/size/viewport_width=280
-window/size/viewport_height=151
+window/size/viewport_width=640
+window/size/viewport_height=368
 window/size/window_width_override=1820
 window/size/window_height_override=980
 window/energy_saving/keep_screen_on=false
