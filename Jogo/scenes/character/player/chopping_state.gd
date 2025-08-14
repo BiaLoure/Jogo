@@ -36,6 +36,7 @@ func _on_enter() -> void:
 		hit_component_collision_shape.position = Vector2(9,0)
 	else:
 		animation_player.play("chopping_down")
+		hit_component_collision_shape.position = Vector2(0,3)
 	
 	hit_component_collision_shape.disabled = false
 

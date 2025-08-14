@@ -444,10 +444,11 @@ script = ExtResource("8_68dt2")
 player = NodePath("../..")
 animation_player = NodePath("../../AnimatedSprite2D")
 
-[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_player")]
+[node name="Watering" type="Node" parent="StateMachine" node_paths=PackedStringArray("player", "animation_player", "hit_component_collision_shape")]
 script = ExtResource("9_in2if")
 player = NodePath("../..")
 animation_player = NodePath("../../AnimatedSprite2D")
+hit_component_collision_shape = NodePath("../../HitComponent/HitComponentCollisionShape2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
