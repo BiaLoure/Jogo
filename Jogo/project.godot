@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 
 ToolManager="*res://scripts/globais/tool_manager.gd"
 InventoryManager="*res://scripts/globais/inventory_manager.gd"
+DayAndNightCycleManager="*res://scripts/globais/day_and_night_cycle_manager.gd"
 
 [display]
 
@@ -34,7 +35,9 @@ window/stretch/aspect="ignore"
 folder_colors={
 "res://assets/": "blue",
 "res://scenes/": "purple",
-"res://scripts/": "pink"
+"res://scripts/": "pink",
+"res://scripts/state_machine/": "orange",
+"res://tilesets/": "yellow"
 }
 
 [input]

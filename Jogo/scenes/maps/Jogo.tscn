@@ -1,18 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2xvlb5mitexj"]
+[gd_scene load_steps=7 format=3 uid="uid://c2xvlb5mitexj"]
 
 [ext_resource type="PackedScene" uid="uid://diplqajrvpgqq" path="res://scenes/character/player/player.tscn" id="1_6gasf"]
 [ext_resource type="PackedScene" uid="uid://ckjf4n1mt0641" path="res://scenes/components/day_night_cycle_component.tscn" id="1_tncra"]
 [ext_resource type="PackedScene" uid="uid://dd5yx11pombpj" path="res://scenes/maps/Fazenda.tscn" id="2_fsxhu"]
 [ext_resource type="PackedScene" uid="uid://bnqxc10hsf8dh" path="res://scripts/globais/game_screen.tscn" id="3_fsxhu"]
-[ext_resource type="PackedScene" uid="uid://cko12n53a5cra" path="res://scenes/objects/rocks/rock.tscn" id="4_meysu"]
-[ext_resource type="Shader" uid="uid://c3klrri82yvu1" path="res://scenes/objects/rocks/rock.gdshader" id="5_6mfhj"]
 [ext_resource type="PackedScene" uid="uid://b71w8656kkkdr" path="res://scenes/objects/plants/corn.tscn" id="5_meysu"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ggwpx"]
-resource_local_to_scene = true
-shader = ExtResource("5_6mfhj")
-shader_parameter/shake_intensity = 0.0
-shader_parameter/sheke_speed = 20.0
+[ext_resource type="PackedScene" uid="uid://dwgfmitn470ye" path="res://scenes/objects/plants/tomate.tscn" id="6_6mfhj"]
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
@@ -25,14 +18,23 @@ visible = false
 z_index = 0
 position = Vector2(106, 47)
 
+[node name="Crops" type="Node2D" parent="."]
+y_sort_enabled = true
+position = Vector2(359, 252)
+
+[node name="Corn" parent="Crops" instance=ExtResource("5_meysu")]
+position = Vector2(-8, 0)
+
+[node name="Tomate" parent="Crops" instance=ExtResource("6_6mfhj")]
+position = Vector2(20, 1)
+
+[node name="Corn2" parent="Crops" instance=ExtResource("5_meysu")]
+position = Vector2(-8, 20)
+
+[node name="Tomate2" parent="Crops" instance=ExtResource("6_6mfhj")]
+position = Vector2(20, 19)
+
 [node name="Player" parent="." instance=ExtResource("1_6gasf")]
 position = Vector2(431, 217)
 
 [node name="GameScreen" parent="." instance=ExtResource("3_fsxhu")]
-
-[node name="Corn" parent="." instance=ExtResource("5_meysu")]
-position = Vector2(429, 257)
-
-[node name="Rock" parent="." instance=ExtResource("4_meysu")]
-material = SubResource("ShaderMaterial_ggwpx")
-position = Vector2(372, 233)

@@ -409,13 +409,11 @@ current_tool = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_hkcfm")
-animation = &"chopping_down"
+animation = &"idle_down"
 autoplay = "idle_down"
-frame = 1
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_k53q1")
 one_way_collision_margin = 0.0
 
@@ -460,6 +458,6 @@ limit_bottom = 368
 [node name="HitComponent" parent="." instance=ExtResource("10_68dt2")]
 
 [node name="HitComponentCollisionShape2D" type="CollisionShape2D" parent="HitComponent"]
-position = Vector2(0, 2)
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_in2if")
 debug_color = Color(0.874181, 0.232092, 0.643894, 0.42)
