@@ -22,13 +22,13 @@ DayAndNightCycleManager="*res://scripts/globais/day_and_night_cycle_manager.gd"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=368
-window/size/window_width_override=1820
+window/size/viewport_width=655
+window/size/viewport_height=367
+window/size/mode=1
+window/size/window_width_override=1750
 window/size/window_height_override=980
 window/energy_saving/keep_screen_on=false
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
 
 [file_customization]
 
@@ -39,6 +39,10 @@ folder_colors={
 "res://scripts/state_machine/": "orange",
 "res://tilesets/": "yellow"
 }
+
+[global_group]
+
+player=""
 
 [input]
 
@@ -82,6 +86,11 @@ hit={
 release_tool={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+remove_dirt={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":true,"meta_pressed":false,"button_mask":1,"position":Vector2(285, 14),"global_position":Vector2(294, 62),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 
