@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfll5hurcjvdn"]
+
+[ext_resource type="PackedScene" uid="uid://dlyj2xl7mexp0" path="res://scenes/objects/trees/large_tree.tscn" id="1_0e48y"]
+[ext_resource type="PackedScene" uid="uid://drag6c56vbbuu" path="res://scenes/objects/trees/small_tree.tscn" id="2_epypp"]
+[ext_resource type="PackedScene" uid="uid://diplqajrvpgqq" path="res://scenes/character/player/player.tscn" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://bnqxc10hsf8dh" path="res://scripts/globais/game_screen.tscn" id="4_0hol4"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0hol4"]
+scenes/1/scene = ExtResource("1_0e48y")
+scenes/2/scene = ExtResource("2_epypp")
+
+[sub_resource type="TileSet" id="TileSet_q6r6c"]
+sources/0 = SubResource("TileSetScenesCollectionSource_0hol4")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 10, 0, 7, 0, 0, 0, 0, 0, 0, 0, 1, 0, 13, 0, 6, 0, 0, 0, 0, 0, 0, 0, 2, 0)
+tile_set = SubResource("TileSet_q6r6c")
+
+[node name="Player" parent="." instance=ExtResource("3_epypp")]
+position = Vector2(81, 87)
+
+[node name="GameScreen" parent="." instance=ExtResource("4_0hol4")]
