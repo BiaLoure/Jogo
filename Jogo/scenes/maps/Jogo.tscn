@@ -1,7 +1,9 @@
-[gd_scene load_steps=42 format=4 uid="uid://c2xvlb5mitexj"]
+[gd_scene load_steps=50 format=4 uid="uid://c2xvlb5mitexj"]
 
 [ext_resource type="PackedScene" uid="uid://diplqajrvpgqq" path="res://scenes/character/player/player.tscn" id="1_6gasf"]
+[ext_resource type="PackedScene" uid="uid://dk0syvs5kqluc" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="1_p2666"]
 [ext_resource type="PackedScene" uid="uid://ckjf4n1mt0641" path="res://scenes/components/day_night_cycle_component.tscn" id="1_tncra"]
+[ext_resource type="Script" uid="uid://dchkomrdtih3c" path="res://scenes/maps/jogo.gd" id="1_vl7k1"]
 [ext_resource type="PackedScene" uid="uid://bnqxc10hsf8dh" path="res://scripts/globais/game_screen.tscn" id="3_fsxhu"]
 [ext_resource type="Texture2D" uid="uid://o3f0cahgjcns" path="res://assets/game/tilesets/Grass.png" id="4_ddm4r"]
 [ext_resource type="PackedScene" uid="uid://b3rgl7p25rdy2" path="res://scenes/maps/Fazenda.tscn" id="4_fi4lw"]
@@ -24,8 +26,14 @@
 [ext_resource type="Texture2D" uid="uid://do3jmye3cvr50" path="res://assets/game/objects/Basic_Grass_Biom_things.png" id="19_rdj4i"]
 [ext_resource type="Texture2D" uid="uid://24u16x5syrne" path="res://assets/game/tilesets/Doors.png" id="20_q7ssk"]
 [ext_resource type="TileSet" uid="uid://befa2mw7tde5v" path="res://tilesets/game_tile_set.tres" id="21_soso4"]
+[ext_resource type="PackedScene" uid="uid://bbdcr7ggxudje" path="res://scenes/components/save_data_component.tscn" id="23_o7xp1"]
+[ext_resource type="Resource" uid="uid://b62mbg1t3vynn" path="res://resources/tilemap_layer_data_resource.tres" id="24_ktdtr"]
 [ext_resource type="PackedScene" uid="uid://buwk4ahpwhjq2" path="res://scenes/components/crops_cursor_component.tscn" id="25_bj2ya"]
 [ext_resource type="Script" uid="uid://biwrbge1a32gq" path="res://scenes/components/crops_cursor_component.gd" id="26_e2uvj"]
+[ext_resource type="PackedScene" uid="uid://di1qye60o3wsf" path="res://scenes/components/save_level_data_component.tscn" id="27_a3g4n"]
+[ext_resource type="Script" uid="uid://bv4npvhagn78t" path="res://scenes/components/save_level_data_component.gd" id="28_p2666"]
+[ext_resource type="PackedScene" uid="uid://uhhpjwxnwcyg" path="res://scenes/components/pathway.tscn" id="32_ytjkj"]
+[ext_resource type="Script" uid="uid://vpa7ukxemb7i" path="res://scenes/components/pathway.gd" id="33_2japg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ic7kj"]
 texture = ExtResource("4_ddm4r")
@@ -1197,8 +1205,14 @@ sources/13 = SubResource("TileSetScenesCollectionSource_nuwnx")
 
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_vl7k1")
 
 [node name="DayNightCycleComponent" parent="." instance=ExtResource("1_tncra")]
+
+[node name="TestSceneSaveDataManagerComponent" parent="." instance=ExtResource("1_p2666")]
+
+[node name="SaveLevelDataComponent" parent="." instance=ExtResource("27_a3g4n")]
+script = ExtResource("28_p2666")
 
 [node name="Mapa" type="Node2D" parent="."]
 position = Vector2(0, -1)
@@ -1210,6 +1224,9 @@ tile_set = SubResource("TileSet_er3qt")
 
 [node name="TilledSoil" type="TileMapLayer" parent="Mapa"]
 tile_set = ExtResource("21_soso4")
+
+[node name="SaveDataComponent" parent="Mapa/TilledSoil" instance=ExtResource("23_o7xp1")]
+save_data_resource = ExtResource("24_ktdtr")
 
 [node name="Fazenda2" parent="." instance=ExtResource("4_fi4lw")]
 position = Vector2(0, -1)
@@ -1230,3 +1247,27 @@ position = Vector2(393, 206)
 [node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("25_bj2ya")]
 script = ExtResource("26_e2uvj")
 tilled_soil_tilemap_layer = NodePath("../Mapa/TilledSoil")
+
+[node name="Loja" parent="." instance=ExtResource("32_ytjkj")]
+position = Vector2(650, 122)
+scale = Vector2(1, 1.08901)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("33_2japg")
+
+[node name="LojaPos" type="Marker2D" parent="."]
+position = Vector2(629, 116)
+
+[node name="Construir" parent="." instance=ExtResource("32_ytjkj")]
+position = Vector2(403, 377)
+rotation = -1.58918
+scale = Vector2(1, 1.18594)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("33_2japg")
+
+[node name="ConstruirPos" type="Marker2D" parent="."]
+position = Vector2(403, 355)
+
+[connection signal="body_entered" from="Loja" to="Loja" method="_on_body_entered"]
+[connection signal="body_entered" from="Construir" to="Construir" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b71w8656kkkdr"]
+[gd_scene load_steps=9 format=3 uid="uid://b71w8656kkkdr"]
 
 [ext_resource type="Script" uid="uid://b8i2jsj7p52jq" path="res://scenes/objects/plants/corn.gd" id="1_hgaca"]
 [ext_resource type="Texture2D" uid="uid://18gvpabx6qxs" path="res://assets/game/objects/Basic_Plants.png" id="1_hm4is"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://beudgufwu2x4t" path="res://scenes/objects/plants/watering_particles.tscn" id="2_ofjf8"]
 [ext_resource type="PackedScene" uid="uid://bo3g6mwin8w5u" path="res://scenes/objects/plants/flowering_particles.tscn" id="3_5ucl7"]
 [ext_resource type="PackedScene" uid="uid://b6bhq710qhbis" path="res://scenes/objects/plants/growth_cycle_component.tscn" id="5_hgaca"]
+[ext_resource type="PackedScene" uid="uid://bbdcr7ggxudje" path="res://scenes/components/save_data_component.tscn" id="7_q3ekf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ofjf8"]
 size = Vector2(13, 8)
@@ -34,3 +35,5 @@ shape = SubResource("RectangleShape2D_ofjf8")
 
 [node name="GrowthCycleComponent" parent="." instance=ExtResource("5_hgaca")]
 days_until_harvest = 5
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("7_q3ekf")]

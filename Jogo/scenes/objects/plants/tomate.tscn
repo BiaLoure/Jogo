@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwgfmitn470ye"]
+[gd_scene load_steps=9 format=3 uid="uid://dwgfmitn470ye"]
 
 [ext_resource type="Script" uid="uid://10feup4p2jd0" path="res://scenes/objects/plants/tomate.gd" id="1_0d20p"]
 [ext_resource type="Texture2D" uid="uid://18gvpabx6qxs" path="res://assets/game/objects/Basic_Plants.png" id="2_kefsl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://beudgufwu2x4t" path="res://scenes/objects/plants/watering_particles.tscn" id="4_44fu4"]
 [ext_resource type="PackedScene" uid="uid://ln3prkp5f0b6" path="res://scenes/components/hurt_component.tscn" id="5_ftli0"]
 [ext_resource type="PackedScene" uid="uid://b6bhq710qhbis" path="res://scenes/objects/plants/growth_cycle_component.tscn" id="6_3k7s3"]
+[ext_resource type="PackedScene" uid="uid://bbdcr7ggxudje" path="res://scenes/components/save_data_component.tscn" id="7_0godf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d20p"]
 size = Vector2(7, 7)
@@ -32,3 +33,5 @@ position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_0d20p")
 
 [node name="GrowthCycleComponent" parent="." instance=ExtResource("6_3k7s3")]
+
+[node name="SaveDataComponent" parent="." instance=ExtResource("7_0godf")]
