@@ -1215,7 +1215,7 @@ vertices = PackedVector2Array(596, 339, 473.133, 339, 473.883, 280, 596, 323, 61
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(464, 270, 463, 349, 606, 349, 606, 333, 622, 333, 622, 270)])
 
-[node name="Playground" type="Node2D"]
+[node name="Cat Village" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_vl7k1")
 
@@ -1252,10 +1252,8 @@ grass_tilemap_layer = NodePath("../Mapa/Fundo_ solo")
 tilled_soil_tilemap_layer = NodePath("../Mapa/TilledSoil")
 
 [node name="GameScreen" parent="." instance=ExtResource("3_fsxhu")]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_6gasf")]
-visible = false
 position = Vector2(393, 206)
 
 [node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("25_bj2ya")]

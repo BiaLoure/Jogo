@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://cx1lvvbq1tei3"]
+[gd_scene load_steps=55 format=4 uid="uid://cx1lvvbq1tei3"]
 
 [ext_resource type="TileSet" uid="uid://befa2mw7tde5v" path="res://tilesets/game_tile_set.tres" id="1_glxdx"]
 [ext_resource type="Script" uid="uid://cefcv2tac7f76" path="res://scenes/maps/mar.gd" id="1_l0fqh"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://vpa7ukxemb7i" path="res://scenes/components/pathway.gd" id="26_6h6ja"]
 [ext_resource type="PackedScene" uid="uid://bnqxc10hsf8dh" path="res://scripts/globais/game_screen.tscn" id="31_p4ncc"]
 [ext_resource type="PackedScene" uid="uid://dxx8k4020kkpu" path="res://scenes/character/nick.tscn" id="32_4drcf"]
+[ext_resource type="PackedScene" uid="uid://ckjf4n1mt0641" path="res://scenes/components/day_night_cycle_component.tscn" id="33_es16f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdxqt"]
 texture = ExtResource("2_yytx5")
@@ -1473,6 +1474,8 @@ position = Vector2(12, 167)
 
 [node name="Nick" parent="." instance=ExtResource("32_4drcf")]
 position = Vector2(473, 112)
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("33_es16f")]
 
 [connection signal="body_entered" from="Loja" to="Loja" method="_on_body_entered"]
 [connection signal="body_entered" from="Construir" to="Construir" method="_on_body_entered"]

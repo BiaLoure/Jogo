@@ -39,6 +39,8 @@ func save_game() -> void:
 	
 
 func load_game() -> void:
+	for node in get_tree().get_nodes_in_group("save_data_component"):
+		node.load_data()
 	var level_save_file_name: String = save_file_name % level_scene_name
 	var save_game_path: String = save_game_data_path + level_save_file_name
 	

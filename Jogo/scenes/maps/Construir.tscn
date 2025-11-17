@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://oxo0f0ij7ssg"]
+[gd_scene load_steps=62 format=4 uid="uid://oxo0f0ij7ssg"]
 
 [ext_resource type="Script" uid="uid://cefcv2tac7f76" path="res://scenes/maps/mar.gd" id="1_l7icg"]
 [ext_resource type="TileSet" uid="uid://befa2mw7tde5v" path="res://tilesets/game_tile_set.tres" id="2_yn0os"]
@@ -36,6 +36,7 @@
 [ext_resource type="Script" uid="uid://vpa7ukxemb7i" path="res://scenes/components/pathway.gd" id="32_7tuaw"]
 [ext_resource type="PackedScene" uid="uid://bnqxc10hsf8dh" path="res://scripts/globais/game_screen.tscn" id="35_2lcsi"]
 [ext_resource type="PackedScene" uid="uid://cbo2bwt71jem2" path="res://scenes/character/ray.tscn" id="36_634m4"]
+[ext_resource type="PackedScene" uid="uid://ckjf4n1mt0641" path="res://scenes/components/day_night_cycle_component.tscn" id="37_w028u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdxqt"]
 texture = ExtResource("3_kqe21")
@@ -1574,6 +1575,8 @@ position = Vector2(641, 166)
 
 [node name="Ray" parent="." instance=ExtResource("36_634m4")]
 position = Vector2(124, 112)
+
+[node name="DayNightCycleComponent" parent="." instance=ExtResource("37_w028u")]
 
 [connection signal="body_entered" from="Jogo" to="Jogo" method="_on_body_entered"]
 [connection signal="body_entered" from="Mar" to="Mar" method="_on_body_entered"]
