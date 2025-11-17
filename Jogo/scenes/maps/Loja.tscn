@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://b5ss2owis2w70"]
+[gd_scene load_steps=49 format=4 uid="uid://b5ss2owis2w70"]
 
 [ext_resource type="TileSet" uid="uid://befa2mw7tde5v" path="res://tilesets/game_tile_set.tres" id="1_5hkoe"]
 [ext_resource type="Script" uid="uid://b70ajhliwenq4" path="res://scenes/maps/loja.gd" id="1_h34ub"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://diplqajrvpgqq" path="res://scenes/character/player/player.tscn" id="22_5js1d"]
 [ext_resource type="PackedScene" uid="uid://uhhpjwxnwcyg" path="res://scenes/components/pathway.tscn" id="25_mvnjj"]
 [ext_resource type="Script" uid="uid://vpa7ukxemb7i" path="res://scenes/components/pathway.gd" id="26_h34ub"]
+[ext_resource type="PackedScene" uid="uid://bnqxc10hsf8dh" path="res://scripts/globais/game_screen.tscn" id="28_nw7e7"]
+[ext_resource type="PackedScene" uid="uid://c0dgvncm8du0p" path="res://scenes/character/Mia.tscn" id="29_e522n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sdxqt"]
 texture = ExtResource("1_sjjip")
@@ -1375,6 +1377,11 @@ position = Vector2(16, 123)
 
 [node name="MarPos" type="Marker2D" parent="."]
 position = Vector2(334, 355)
+
+[node name="GameScreen" parent="." instance=ExtResource("28_nw7e7")]
+
+[node name="Mia" parent="." instance=ExtResource("29_e522n")]
+position = Vector2(348, 82)
 
 [connection signal="body_entered" from="Jogo" to="Jogo" method="_on_body_entered"]
 [connection signal="body_entered" from="Mar" to="Mar" method="_on_body_entered"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0dgvncm8du0p"]
+
+[ext_resource type="Texture2D" uid="uid://cq7v5iomd2mya" path="res://assets/game/characters/npcs.png" id="1_cu1hh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj54i"]
+atlas = ExtResource("1_cu1hh")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu3ad"]
+atlas = ExtResource("1_cu1hh")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n7bua"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj54i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu3ad")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j1wfv"]
+radius = 5.0
+
+[node name="Mia" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_n7bua")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_j1wfv")

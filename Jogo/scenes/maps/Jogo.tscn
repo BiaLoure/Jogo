@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://c2xvlb5mitexj"]
+[gd_scene load_steps=54 format=4 uid="uid://c2xvlb5mitexj"]
 
 [ext_resource type="PackedScene" uid="uid://diplqajrvpgqq" path="res://scenes/character/player/player.tscn" id="1_6gasf"]
 [ext_resource type="PackedScene" uid="uid://dk0syvs5kqluc" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="1_p2666"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" uid="uid://bv4npvhagn78t" path="res://scenes/components/save_level_data_component.gd" id="28_p2666"]
 [ext_resource type="PackedScene" uid="uid://uhhpjwxnwcyg" path="res://scenes/components/pathway.tscn" id="32_ytjkj"]
 [ext_resource type="Script" uid="uid://vpa7ukxemb7i" path="res://scenes/components/pathway.gd" id="33_2japg"]
+[ext_resource type="PackedScene" uid="uid://cwfisk2yud2dw" path="res://scenes/character/chicken/chicken.tscn" id="35_tc3dv"]
+[ext_resource type="PackedScene" uid="uid://gr1cmuvds0kw" path="res://scenes/character/cow/cow.tscn" id="36_cyk3q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ic7kj"]
 texture = ExtResource("4_ddm4r")
@@ -1203,6 +1205,16 @@ sources/11 = SubResource("TileSetAtlasSource_3hfum")
 sources/12 = SubResource("TileSetAtlasSource_qspkh")
 sources/13 = SubResource("TileSetScenesCollectionSource_nuwnx")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tc3dv"]
+vertices = PackedVector2Array(283, 77.9063, 283, 19, 289.719, 19, 291.742, 46.3281, 381.867, 77.0781, 339.328, 44.6797, 381.117, 17, 341.313, 17)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(391, 7, 392, 87, 273, 88, 273, 9, 299, 9, 301, 36, 330, 35, 332, 7)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cyk3q"]
+vertices = PackedVector2Array(596, 339, 473.133, 339, 473.883, 280, 596, 323, 612, 280, 612, 323)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 2, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(464, 270, 463, 349, 606, 349, 606, 333, 622, 333, 622, 270)])
+
 [node name="Playground" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_vl7k1")
@@ -1240,8 +1252,10 @@ grass_tilemap_layer = NodePath("../Mapa/Fundo_ solo")
 tilled_soil_tilemap_layer = NodePath("../Mapa/TilledSoil")
 
 [node name="GameScreen" parent="." instance=ExtResource("3_fsxhu")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("1_6gasf")]
+visible = false
 position = Vector2(393, 206)
 
 [node name="CropsCursorComponent" parent="." node_paths=PackedStringArray("tilled_soil_tilemap_layer") instance=ExtResource("25_bj2ya")]
@@ -1268,6 +1282,30 @@ script = ExtResource("33_2japg")
 
 [node name="ConstruirPos" type="Marker2D" parent="."]
 position = Vector2(403, 355)
+
+[node name="Chickens" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Chickens"]
+position = Vector2(12, 7)
+navigation_polygon = SubResource("NavigationPolygon_tc3dv")
+
+[node name="Chicken" parent="Chickens" instance=ExtResource("35_tc3dv")]
+position = Vector2(321, 71)
+
+[node name="Chicken2" parent="Chickens" instance=ExtResource("35_tc3dv")]
+position = Vector2(363, 57)
+
+[node name="Cows" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Cows"]
+navigation_polygon = SubResource("NavigationPolygon_cyk3q")
+navigation_layers = 2
+
+[node name="Cow" parent="Cows" instance=ExtResource("36_cyk3q")]
+position = Vector2(506, 323)
+
+[node name="Cow2" parent="Cows" instance=ExtResource("36_cyk3q")]
+position = Vector2(556, 308)
 
 [connection signal="body_entered" from="Loja" to="Loja" method="_on_body_entered"]
 [connection signal="body_entered" from="Construir" to="Construir" method="_on_body_entered"]

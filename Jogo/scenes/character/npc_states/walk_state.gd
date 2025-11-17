@@ -1,0 +1,78 @@
+extends NodeState
+
+@export var character: CharacterBody2D
+@export var animated_sprite_2d: AnimatedSprite2D
+@export var navigation_agent_2d: NavigationAgent2D
+@export var min_speed: float = 5.0
+@export var max_speed: float = 10.0
+
+var speed: float = 0.0
+
+func _ready() -> void:
+	if navigation_agent_2d == null:
+		push_error("ERRO: navigation_agent_2d não atribuído no inspector!")
+		return
+		
+	if character == null:
+		push_error("ERRO: character não atribuído no inspector!")
+		return
+	
+	call_deferred("character_setup")
+
+
+func character_setup() -> void:
+	await get_tree().physics_frame
+	set_movement_target()
+
+
+func set_movement_target() -> void:
+	var map_rid = navigation_agent_2d.get_navigation_map()
+	var layers = navigation_agent_2d.navigation_layers
+	var target_position = NavigationServer2D.map_get_random_point(map_rid, layers, false)
+	
+	navigation_agent_2d.target_position = target_position
+	
+	speed = randf_range(min_speed, max_speed)
+
+
+func _on_process(_delta: float) -> void:
+	pass
+
+
+func _on_physics_process(_delta: float) -> void:
+	if navigation_agent_2d.is_navigation_finished():
+		set_movement_target()
+		return
+
+	var next_pos: Vector2 = navigation_agent_2d.get_next_path_position()
+	var direction: Vector2 = character.global_position.direction_to(next_pos)
+	
+	animated_sprite_2d.flip_h = direction.x < 0
+
+	var velocity: Vector2 = direction * speed
+	
+	if navigation_agent_2d.avoidance_enabled:
+		
+		navigation_agent_2d.velocity = velocity
+		
+		
+		character.velocity = navigation_agent_2d.get_current_velocity()
+		character.move_and_slide()
+	else:
+		# Sem avoidance → movimento normal
+		character.velocity = velocity
+		character.move_and_slide()
+
+
+func _on_next_transitions() -> void:
+	if navigation_agent_2d.is_navigation_finished():
+		character.velocity = Vector2.ZERO
+		transition.emit("Idle")
+
+
+func _on_enter() -> void:
+	animated_sprite_2d.play("walk")
+
+
+func _on_exit() -> void:
+	animated_sprite_2d.stop()
